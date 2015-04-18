@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfLearn.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:WpfLearn.Controls"
+        xmlns:vm="clr-namespace:WpfLearn.ViewModels"
+        xmlns:v="clr-namespace:WpfLearn.Views"
+        Title="MainWindow" Height="350" Width="525">
+
+    <ContentControl Content="{Binding CurrentView}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+                <controls:CenteringControl>
+                    <controls:LoginControl DataContext="{Binding}"></controls:LoginControl>
+                </controls:CenteringControl>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:BankViewModel}">
+                <v:BankView></v:BankView>
+            </DataTemplate>
+        </ContentControl.Resources>
+        
+    </ContentControl>
+</Window>

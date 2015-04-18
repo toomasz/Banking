@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="WpfLearn.Controls.LoginControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:WpfLearn.Converters"
+             mc:Ignorable="d" MinWidth="220">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"></BooleanToVisibilityConverter>
+        <converters:BooleanNegateConverter x:Key="BooleanNegate"></converters:BooleanNegateConverter>
+        <Style TargetType="TextBlock" x:Key="LabelTextBlock">
+            <Setter Property="Foreground" Value="#FF565672"></Setter>
+            <Setter Property="Margin" Value="0,5,0,0"></Setter>
+            <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="LoginButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="BorderBrush" Value="LightBlue"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush x:Name="myBackground" Color="White"></SolidColorBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.200"                                            
+                                            Storyboard.TargetProperty="Background.Color"
+                                            To="LightGreen"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.200"                                            
+                                            Storyboard.TargetProperty="Background.Color"
+                                            To="White"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Border BorderThickness="1" BorderBrush="LightBlue" Padding="10" CornerRadius="6,0,6,0" Background="White" SnapsToDevicePixels="True">
+
+        <Grid TextOptions.TextFormattingMode="Display">
+            <StackPanel Orientation="Vertical" IsEnabled="{Binding LoginInProgress,Converter={StaticResource BooleanNegate}}">
+                <Border BorderThickness="2" Background="#FF588EDC" Padding="4" CornerRadius="1">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1"/>
+                    </Border.Effect>
+                    <TextBlock Foreground="White" Text="MBank" FontWeight="Bold"></TextBlock>
+                </Border>
+                <TextBlock Style="{DynamicResource LabelTextBlock}">Username:</TextBlock>
+                <TextBox Text="{Binding Username}"></TextBox>
+
+                <TextBlock Style="{DynamicResource LabelTextBlock}" Grid.Row="2" Grid.Column="0">Password:</TextBlock>
+                <PasswordBox></PasswordBox>
+                
+                <TextBlock Text="{Binding LoginErrorMessage}" 
+                           Visibility="{Binding LoginError, Converter={StaticResource BoolToVis}}" 
+                           FontWeight="Bold" 
+                           Foreground="Red">                    
+                </TextBlock>
+                <Button Command="{Binding LoginCommand}" 
+                        Style="{DynamicResource LoginButton}" 
+                        Width="100" HorizontalAlignment="Left"
+                        Margin="0,10,0,0">
+                    <StackPanel Margin="4" Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="Login"></TextBlock>
+                        <Control Margin="5,0,0,0" 
+                                 Template="{StaticResource loadingAnimation}" 
+                                 Width="15"
+                                 Visibility="{Binding LoginInProgress,Converter={StaticResource BoolToVis}}">
+                        </Control>
+                         
+                    </StackPanel>
+                </Button>
+                
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

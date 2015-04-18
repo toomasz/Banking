@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLearn", "WpfLearn\WpfLearn.csproj", "{0F8A2E1D-D89E-444D-AF99-E3674A7851BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank", "BankBase\Bank.csproj", "{4715BA0A-2FF8-4459-98A7-0EA138343CF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fake", "FakeBank\Fake.csproj", "{7BB6B121-0C17-4685-9933-15EC4AFE372E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F8A2E1D-D89E-444D-AF99-E3674A7851BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F8A2E1D-D89E-444D-AF99-E3674A7851BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F8A2E1D-D89E-444D-AF99-E3674A7851BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F8A2E1D-D89E-444D-AF99-E3674A7851BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4715BA0A-2FF8-4459-98A7-0EA138343CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4715BA0A-2FF8-4459-98A7-0EA138343CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4715BA0A-2FF8-4459-98A7-0EA138343CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4715BA0A-2FF8-4459-98A7-0EA138343CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BB6B121-0C17-4685-9933-15EC4AFE372E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BB6B121-0C17-4685-9933-15EC4AFE372E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BB6B121-0C17-4685-9933-15EC4AFE372E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BB6B121-0C17-4685-9933-15EC4AFE372E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
